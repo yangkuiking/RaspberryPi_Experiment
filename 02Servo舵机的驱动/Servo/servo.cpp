@@ -2,7 +2,7 @@
 
 Servo::Servo()
 {
-
+    m_isignal=-1;
 }
 Servo::Servo(int signal)
 {
@@ -18,7 +18,8 @@ Servo::Servo(int signal)
 }
 Servo::~Servo()
 {
-
+    if(m_isignal!=-1)
+        pinMode(m_isignal,INPUT);
 }
 
 void Servo::attach(int signal)
@@ -47,4 +48,9 @@ void Servo::write(int angle)
 
     iAngle=ONE_DEGREE*angle;
     pwmWrite(m_isignal,50+iAngle);
+}
+void detach(int signal)
+{
+    if(m_isignal==signal)
+        pinMode(m_isignal,INPUT);
 }

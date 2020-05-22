@@ -16,6 +16,7 @@ class Servo
         void writeToMin();
         void writeToMax();
         void write(int angle);
+        void detach(int signal);
     private:
         int m_isignal;
 
