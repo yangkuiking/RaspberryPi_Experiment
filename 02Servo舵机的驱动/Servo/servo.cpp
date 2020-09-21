@@ -49,7 +49,7 @@ void Servo::write(int angle)
     iAngle=ONE_DEGREE*angle;
     pwmWrite(m_isignal,50+iAngle);
 }
-void detach(int signal)
+void Servo::detach(int signal)
 {
     if(m_isignal==signal)
         pinMode(m_isignal,INPUT);
